@@ -73,12 +73,10 @@ a {
   background-color: #0197f6;
 }
 
-.pravidla a:hover {
-  background-color: red;
+a.pravidla:hover {
+  background-color: #1cbb96;
 }
 
-/*#1cbb96*/
-
-.zacithrat a:hover {
+a.zacithrat:hover {
   background-color: #0090e9;
 }
