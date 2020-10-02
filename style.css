@@ -1,6 +1,7 @@
 html {
   height: 100%;
 }
+
 body {
   height: 100%;
   display: flex;
@@ -71,16 +72,67 @@ a.druheTlacitko:hover {
   background-color: #0090e9;
 }
 
+/*tady konci vseobecne nastaveni a index.html*/
+
 .instrukce {
-  height: 100%;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  height: 100%;
+  /*mohu nastavit min a max width aby to vypadalo lepe?*/
   background-color: #283e50;
-  width: 350px;
   border-radius: 10px 10px 0px 0px;
   padding: 0px 0px;
   margin: 30px 0px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
+  text-align: center;
+  font-style: italic;
+}
+
+.cross,
+.circle {
+  filter: invert(100%);
+  width: 1em;
+  height: 1em;
+}
+
+.tahy {
+  display: flex;
+  flex-direction: column;
+}
+
+.fotoPravidla {
+  width: 100%;
+  height: 100%;
+}
+
+.textPravidla {
+  text-align: left;
+  font-style: normal;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  word-spacing: 2px;
+  line-height: 150%;
+}
+
+@media screen and  (min-width: 540px) {
+  .instrukce {
+    flex-basis: 100%;
+    min-width: 340px;
+  }
+
+  .tahy {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .tahy {
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: calc(50% - 10px - 10px);
+  }
 }
