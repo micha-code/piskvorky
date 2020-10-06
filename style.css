@@ -82,9 +82,9 @@ a.druheTlacitko:hover {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   text-align: center;
-  font-style: italic;
   min-height: 100%;
   max-width: 600px;
+  min-width: 340px;
 }
 
 .cross,
@@ -96,6 +96,7 @@ a.druheTlacitko:hover {
 
 .fotoPravidla {
   width: 100%;
+  min-width: 300px;
 }
 
 .textPravidla {
@@ -109,16 +110,12 @@ a.druheTlacitko:hover {
 
 .tahy {
   margin-bottom: 20px;
+  font-style: italic;
 }
 
-@media screen and (max-width: 540px) {
-  .instrukce {
-    min-width: 340px;
-  }
-
-  .fotoPravidla {
-    min-width: 300px;
-  }
+figure {
+  padding: 10px 10px 10px 10px;
+  margin: 0px;
 }
 
 @media screen and (min-width: 540px) {
@@ -129,6 +126,7 @@ a.druheTlacitko:hover {
   .tahy {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
   }
 
   .tahy figure {
