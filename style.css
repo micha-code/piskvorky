@@ -157,6 +157,12 @@ figure {
   font-size: 16px;
   font-style: bold;
   padding: 5px;
+  flex-shrink: 1;
+}
+
+.hraje a {
+  padding: 0px;
+  display: inline;
 }
 
 .hraje p {
