@@ -159,16 +159,6 @@ figure {
   padding: 5px;
   flex-shrink: 1;
 }
-/*test pseudoprvku
-  .hraje::after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2.75px solid white;
-    margin: 0;
-    margin-left: 5px;
-}*/
 
 .hraje a {
   padding: 0px;
@@ -227,4 +217,21 @@ figure {
 .grid button:focus,
 .grid button:hover {
   filter: brightness(200%);
+}
+
+/*JS hra*/
+.grid--circle {
+  background-image: url('circle.svg');
+  background-color: rgb(228, 225, 225);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.grid--cross {
+  background-image: url('cross.svg');
+  background-color: rgb(228, 225, 225);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
