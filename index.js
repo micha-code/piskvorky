@@ -22,12 +22,17 @@ const play = (event) => {
   }
   if (isWinningMove(event.target)) {
     if (event.target.classList.contains('grid--cross')) {
-      confirm('Vyhrává křížek! Sláva vítězům, spustit novou hru poraženým?');
-    } else if (event.target.classList.contains('grid--circle')) {
-      confirm('Vyhrává kolečko! Sláva vítězům, spustit novou hru poraženým?');
+      setTimeout(() => {
+        window.confirm(`Vyhrává hráč s kolečkem! Spustit novou hru?`);
+        location.reload();
+      }, 100);
     }
+    setTimeout(() => {
+      window.confirm(`Vyhrává hráč s kolečkem! Spustit novou hru?`);
+      location.reload();
+    }, 100);
   }
-}; //pridat reload//
+};
 
 for (let i = 0; i < btnElm.length; i++) {
   btnElm[i].addEventListener('click', play);
@@ -106,7 +111,72 @@ const isWinningMove = (field) => {
     inColumn++;
     i++;
   }
+  // DIAGONALA//
+  // Koukni diagonála "pravá"
+  let r;
+  let c;
+  let symbolsInDiaRight = 1;
 
+  // nahoru doprava
+  r = origin.row;
+  c = origin.column;
+  while (
+    r > 0 &&
+    c < boardSize - 1 &&
+    symbol === getSymbol(getField(r - 1, c + 1))
+  ) {
+    symbolsInDiaRight += 1;
+    r -= 1;
+    c += 1;
+  }
+
+  // dolu doleva
+  r = origin.row;
+  c = origin.column;
+  while (
+    r < boardSize - 1 &&
+    c > 0 &&
+    symbol === getSymbol(getField(r + 1, c - 1))
+  ) {
+    symbolsInDiaRight += 1;
+    r += 1;
+    c -= 1;
+  }
+
+  if (symbolsInDiaRight >= symbolsToWin) {
+    return true;
+  }
+
+  // Koukni diagonála "levá"
+  let symbolsInDiaLeft = 1;
+
+  // nahoru doleva
+  r = origin.row;
+  c = origin.column;
+  while (
+    r > 0 &&
+    c < boardSize - 1 &&
+    symbol === getSymbol(getField(r - 1, c - 1))
+  ) {
+    symbolsInDiaLeft += 1;
+    r -= 1;
+    c -= 1;
+  }
+
+  // dolů doprava
+  r = origin.row;
+  c = origin.column;
+  while (
+    r < boardSize - 1 &&
+    c > 0 &&
+    symbol === getSymbol(getField(r + 1, c + 1))
+  ) {
+    symbolsInDiaLeft += 1;
+    r += 1;
+    c += 1;
+  }
+
+  //KONEC DIAGONALA//
   if (inColumn >= symbolsToWin) {
     return true;
   }
